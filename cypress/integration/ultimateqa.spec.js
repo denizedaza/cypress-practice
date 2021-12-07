@@ -68,10 +68,12 @@ describe("ultimateqa website", () => {
       cy.contains("Feel free to practice your test automation on these elements.");
     });
 
+    //section 1
     it.skip("should find and click the first 'Click Me!' button", () => {
       cy.get('button[id="button1"]').contains("Click Me!").click().get('.icon').should('be.visible');
     });
 
+    //section 2
     it("should navigate to the button example using ID", () => {
       cy.get('#idExample').click()
         .get('.entry-title').should('be.visible');
@@ -81,7 +83,37 @@ describe("ultimateqa website", () => {
     it("should navigate to the link example using text", () => {
       cy.get('a').contains("Click me using this link text!").click()
         .get('.entry-title').should('be.visible');
-      ;
+    });
+
+    it("should navigate to the button example using className", () => {
+      cy.get('.buttonClass').click()
+        .get('.entry-title').should('be.visible');
+    });
+
+    it("should navigate to the button example using Name", () => {
+      cy.get('.buttonClass').click()
+        .get('.entry-title').should('be.visible');
+    });
+
+    //section 3
+    //simple controls
+    it("should navigate to the button under Simple Controls", () => {
+      cy.get('.et_pb_cta_0 > .et_pb_button_wrapper > .et_pb_button').click()
+        .get('.entry-title').should('be.visible');
+    });
+
+    it("should navigate to the link under Simple Controls", () => {
+      cy.get('#simpleElementsLink').click()
+        .get('.entry-title').should('be.visible');
+    });
+
+    it.only("should fill out the email form under Simple Controls", () => {
+      cy.get('input[name="et_pb_contact_name_0"]').type("test")
+      .get('input[name="et_pb_contact_email_0"]').type("test@email.com")
+      .get('button[name="et_builder_submit_button"]')
+      .click()
+      .wait(2000)
+      .get('.et-pb-contact-message > p').should('be.visible')
     });
   });
 
