@@ -107,7 +107,7 @@ describe("ultimateqa website", () => {
         .get('.entry-title').should('be.visible');
     });
 
-    it.only("should fill out the email form under Simple Controls", () => {
+    it("should fill out the email form under Simple Controls", () => {
       cy.get('input[name="et_pb_contact_name_0"]').type("test")
       .get('input[name="et_pb_contact_email_0"]').type("test@email.com")
       .get('button[name="et_builder_submit_button"]')
@@ -115,6 +115,22 @@ describe("ultimateqa website", () => {
       .wait(2000)
       .get('.et-pb-contact-message > p').should('be.visible')
     });
+
+    it.only("should select each radio button", () => {
+      cy.get('input[value="male"]').check().should('be.checked');
+      
+      cy.get('input[value="female"]').check().should('be.checked');
+
+      cy.get('input[value="male"]').should('not.be.checked');
+
+      cy.get('input[value="other"]').check().should('be.checked');
+
+      cy.get('input[value="female"]').should('not.be.checked');
+
+      cy.get('input[value="male"]').check().should('be.checked');
+
+      cy.get('input[value="other"]').should('not.be.checked');
+    })
   });
 
 });
