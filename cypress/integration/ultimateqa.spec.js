@@ -64,7 +64,7 @@ describe("ultimateqa website", () => {
   context("navigating to the practice page with simple elements to interact with", () => {
     beforeEach(() => {
       cy.get('a').contains("Interactions with simple elements").click();
-      cy.wait(2000);
+      cy.wait(1000);
       cy.contains("Feel free to practice your test automation on these elements.");
     });
 
@@ -116,7 +116,7 @@ describe("ultimateqa website", () => {
       .get('.et-pb-contact-message > p').should('be.visible')
     });
 
-    it.only("should select each radio button", () => {
+    it("should select each radio button", () => {
       cy.get('input[value="male"]').check().should('be.checked');
       
       cy.get('input[value="female"]').check().should('be.checked');
@@ -130,7 +130,19 @@ describe("ultimateqa website", () => {
       cy.get('input[value="male"]').check().should('be.checked');
 
       cy.get('input[value="other"]').should('not.be.checked');
+    });
+
+    it("should select the checkboxes and validate", () => {
+      cy.get('input[value="Bike"]').check().should('be.checked');
+
+      cy.get('input[value="Car"]').check().should('be.checked');
+
+      cy.get('input[value="Bike"]').uncheck().should('not.be.checked');
+
+      cy.get('input[value="Car"]').uncheck().should('not.be.checked');
     })
   });
+
+  it.only("should select the dropdown and validate")
 
 });
