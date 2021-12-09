@@ -140,13 +140,22 @@ describe("ultimateqa website", () => {
       cy.get('input[value="Bike"]').uncheck().should('not.be.checked');
 
       cy.get('input[value="Car"]').uncheck().should('not.be.checked');
-    })
+    });
 
-
-    it.only("should select the dropdown and validate", () => {
+    it("should select the dropdown and validate", () => {
       cy.get('select').select('Opel');
 
       cy.get('select option:selected').should('have.text', 'Opel');
+    });
+
+    it.only("should select the appropriate tabs and validate contents", () => {
+      cy.get('li.et_pb_tab_0').contains("Tab 1").click();
+
+      cy.get('.et_pb_all_tabs > .et_pb_tab_0').should('have.class', 'et-pb-active-slide');
+
+      cy.get('li.et_pb_tab_1').contains("Tab 2").click();
+
+      cy.get('.et_pb_all_tabs > .et_pb_tab_1').should('have.class', 'et-pb-active-slide');
     })
   });
 
