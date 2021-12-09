@@ -141,8 +141,13 @@ describe("ultimateqa website", () => {
 
       cy.get('input[value="Car"]').uncheck().should('not.be.checked');
     })
-  });
 
-  it.only("should select the dropdown and validate")
+
+    it.only("should select the dropdown and validate", () => {
+      cy.get('select').select('Opel');
+
+      cy.get('select option:selected').should('have.text', 'Opel');
+    })
+  });
 
 });
