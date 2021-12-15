@@ -9,7 +9,7 @@ describe("ultimateqa website", () => {
       contains("Use your skills to learn how to automate different scenarios")
   });
 
-  context.skip("navigating to the 'Big Page with many elements'", () => {
+  context("navigating to the 'Big Page with many elements'", () => {
     beforeEach(() => {
       cy.get('a').contains("Big page with many elements").click();
     });
@@ -45,7 +45,7 @@ describe("ultimateqa website", () => {
     })
   });
 
-  context.skip("navigating to the 'Fake landing page'", () => {
+  context("navigating to the 'Fake landing page'", () => {
     beforeEach(() => {
       cy.get('a').contains("Fake Landing Page").click();
       cy.wait(3000);
@@ -148,7 +148,7 @@ describe("ultimateqa website", () => {
       cy.get('select option:selected').should('have.text', 'Opel');
     });
 
-    it.only("should select the appropriate tabs and validate contents", () => {
+    it("should select the appropriate tabs and validate contents", () => {
       cy.get('li.et_pb_tab_0').contains("Tab 1").click();
 
       cy.get('.et_pb_all_tabs > .et_pb_tab_0').should('have.class', 'et-pb-active-slide');
