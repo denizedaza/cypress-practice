@@ -6,7 +6,7 @@ describe("ultimateqa website", () => {
 
   it("should navigate to the main UltimateQA Automation Practice Page'", () => {
     cy.get('span').
-      contains("Use your skills to learn how to automate different scenarios")
+      contains("Use your skills to learn how to automate different scenarios");
   });
 
   context("navigating to the 'Big Page with many elements'", () => {
@@ -32,7 +32,7 @@ describe("ultimateqa website", () => {
       cy.get('input[id=et_pb_contact_email_0]').type("test@test.com", { delay: 10 });
       cy.get('textarea[id=et_pb_contact_message_0]').type("testabaloo", { delay: 10 });
       // cy.get('[data-test-id="test-example"]')
-      cy.get('span[class="et_pb_contact_captcha_question"]').contains("7 + 9");
+      cy.get('span[class="et_pb_contact_captcha_question"]').contains("7 + 7");
 
       cy.get('input[name="et_pb_contact_captcha_0"]').type("16");
       cy.get('button[name="et_builder_submit_button"]').first().click();
@@ -42,7 +42,7 @@ describe("ultimateqa website", () => {
       cy.get('.et_pb_toggle_title').click();
       cy.wait(2000);
       cy.contains("Inside of toggle");
-    })
+    });
   });
 
   context("navigating to the 'Fake landing page'", () => {
@@ -58,7 +58,7 @@ describe("ultimateqa website", () => {
 
     it("should to to View Courses", () => {
       cy.get('.et_pb_column_0 > .et_pb_button_module_wrapper > .et_pb_button').click();
-    })
+    });
   });
 
   context("navigating to the practice page with simple elements to interact with", () => {
@@ -77,7 +77,7 @@ describe("ultimateqa website", () => {
     it("should navigate to the button example using ID", () => {
       cy.get('#idExample').click()
         .get('.entry-title').should('be.visible');
-      ;
+      
     });
 
     it("should navigate to the link example using text", () => {
@@ -109,11 +109,11 @@ describe("ultimateqa website", () => {
 
     it("should fill out the email form under Simple Controls", () => {
       cy.get('input[name="et_pb_contact_name_0"]').type("test")
-      .get('input[name="et_pb_contact_email_0"]').type("test@email.com")
-      .get('button[name="et_builder_submit_button"]')
-      .click()
-      .wait(2000)
-      .get('.et-pb-contact-message > p').should('be.visible')
+        .get('input[name="et_pb_contact_email_0"]').type("test@email.com")
+        .get('button[name="et_builder_submit_button"]')
+        .click()
+        .wait(2000)
+        .get('.et-pb-contact-message > p').should('be.visible');
     });
 
     it("should select each radio button", () => {
@@ -156,7 +156,7 @@ describe("ultimateqa website", () => {
       cy.get('li.et_pb_tab_1').contains("Tab 2").click();
 
       cy.get('.et_pb_all_tabs > .et_pb_tab_1').should('have.class', 'et-pb-active-slide');
-    })
+    });
   });
 
 });
